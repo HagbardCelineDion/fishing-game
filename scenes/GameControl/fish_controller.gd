@@ -13,12 +13,10 @@ var fish = [
 	preload("res://fish/pumpkinseed.tres"),
 ]
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(2,0).timeout
-
-
+	pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,4 +26,9 @@ func choose_fish() -> void:
 	var fish_selection = randi_range(0,fish.size()-1)
 	var the_fish = fish[fish_selection]
 	fish_ui.fish = the_fish
+
+func get_value() -> int:
+	return fish_ui.fish.get_value()
+	
+func print() -> void:
 	fish_ui.print_stats()

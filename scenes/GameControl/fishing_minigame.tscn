@@ -1,3 +1,104 @@
 [gd_scene format=3 uid="uid://di0bytiue2f6i"]
 
+[ext_resource type="Script" uid="uid://ndb8xlxd0j34" path="res://scenes/GameControl/fishing_minigame.gd" id="1_chhxc"]
+[ext_resource type="Texture2D" uid="uid://cthtdd7c53fcg" path="res://art/Game border.png" id="1_dlrib"]
+[ext_resource type="Texture2D" uid="uid://dulovx6t0beg5" path="res://art/Game fish.png" id="2_chhxc"]
+[ext_resource type="Texture2D" uid="uid://bkgyl46sd862v" path="res://art/Player.png" id="3_k7wer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srbyt"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh76a"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyg6g"]
+size = Vector2(6, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gthg3"]
+size = Vector2(4, 8)
+
+[sub_resource type="Theme" id="Theme_k7wer"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmqk8"]
+bg_color = Color(0.33127785, 0.593945, 1, 0.25882354)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgoym"]
+bg_color = Color(0.72243184, 0, 0.12677124, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="FishingMinigame" type="Node2D" unique_id=1625891054]
+script = ExtResource("1_chhxc")
+fish_continue_chance = 0.995
+fish_velocity = 15.0
+
+[node name="Border" type="Sprite2D" parent="." unique_id=1611273646]
+texture = ExtResource("1_dlrib")
+
+[node name="TopWall" type="Area2D" parent="Border" unique_id=2124764636 groups=["TopWall", "Walls"]]
+position = Vector2(0, -39)
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/TopWall" unique_id=1085142430]
+shape = SubResource("RectangleShape2D_srbyt")
+
+[node name="BottomWall" type="Area2D" parent="Border/TopWall" unique_id=1929215136 groups=["BotWall", "Walls"]]
+position = Vector2(0, 71)
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/TopWall/BottomWall" unique_id=1564905380]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_mh76a")
+
+[node name="Player" type="Area2D" parent="." unique_id=2066812769]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=860866449]
+shape = SubResource("RectangleShape2D_lyg6g")
+
+[node name="Image" type="Sprite2D" parent="Player" unique_id=561178531]
+texture = ExtResource("3_k7wer")
+
+[node name="Fish" type="Area2D" parent="." unique_id=719450462 groups=["Fish"]]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish" unique_id=42643903]
+shape = SubResource("RectangleShape2D_gthg3")
+
+[node name="Image" type="Sprite2D" parent="Fish" unique_id=546949160]
+texture = ExtResource("2_chhxc")
+
+[node name="Control" type="Control" parent="." unique_id=1536169863]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = -37.0
+offset_right = 60.0
+offset_bottom = 3.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=970369629]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 69.0
+theme = SubResource("Theme_k7wer")
+theme_override_styles/background = SubResource("StyleBoxFlat_jmqk8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tgoym")
+fill_mode = 3
+show_percentage = false

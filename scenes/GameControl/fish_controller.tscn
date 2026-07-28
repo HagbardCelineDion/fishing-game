@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8v16oe1kp3gb" path="res://scenes/ui/fish_ui.tscn" id="1_ado4j"]
 [ext_resource type="Script" uid="uid://bc1ewyhncagey" path="res://scenes/GameControl/fish_controller.gd" id="1_y01tg"]
 
-[node name="FishController" type="Node" unique_id=805653219]
+[node name="FishController" type="Node2D" unique_id=1200612156]
 script = ExtResource("1_y01tg")
 
 [node name="fish_ui" parent="." unique_id=1880972234 instance=ExtResource("1_ado4j")]

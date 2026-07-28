@@ -4,6 +4,44 @@
 [ext_resource type="Script" uid="uid://c152cryrx3ufe" path="res://scenes/test_scene.gd" id="1_j8ivh"]
 [ext_resource type="Texture2D" uid="uid://cv26wahebbdmo" path="res://art/Background.png" id="2_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bifnq4nlcrgln" path="res://scenes/Fisherman/fisherman.tscn" id="4_7ddre"]
+[ext_resource type="Texture2D" uid="uid://b4bnp5jktqf6t" path="res://shaders/Waternoise.png" id="4_gthg3"]
+[ext_resource type="Texture2D" uid="uid://cwu02thfnu3px" path="res://shaders/CausticTextureHighlights-150x150.png" id="5_ntc4i"]
+[ext_resource type="Shader" uid="uid://ftin7ughoy5o" path="res://shaders/water.gdshader" id="5_qjeyg"]
+[ext_resource type="Texture2D" uid="uid://d0u6fynl5udc2" path="res://shaders/CausticTexture-150x150.png" id="6_u0xbq"]
+[ext_resource type="Texture2D" uid="uid://cthtdd7c53fcg" path="res://art/Game border.png" id="7_pln1h"]
+[ext_resource type="Texture2D" uid="uid://3p2xn6u0vt7" path="res://shaders/Depth gradient.png" id="8_8gixj"]
+[ext_resource type="Texture2D" uid="uid://6iyeofn65ipy" path="res://shaders/Water shader.png" id="9_hf2sn"]
+[ext_resource type="Texture2D" uid="uid://d4l4cbm23eqir" path="res://art/Dock.png" id="12_qq5q4"]
+[ext_resource type="PackedScene" uid="uid://di0bytiue2f6i" path="res://scenes/GameControl/fishing_minigame.tscn" id="14_pln1h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srbyt"]
+shader = ExtResource("5_qjeyg")
+shader_parameter/aspectRatio = 0.225
+shader_parameter/pixelization = 128.0
+shader_parameter/waterDepthGradient = ExtResource("8_8gixj")
+shader_parameter/causticColor = Vector4(0.46, 0.77, 0.76, 1)
+shader_parameter/causticHighlightColor = Vector4(0.74, 0.89, 0.9, 1)
+shader_parameter/causticTexture = ExtResource("6_u0xbq")
+shader_parameter/causticHighlightTexture = ExtResource("5_ntc4i")
+shader_parameter/causticNoiseTexture = ExtResource("4_gthg3")
+shader_parameter/causticFadeNoiseTexture = ExtResource("4_gthg3")
+shader_parameter/causticScale = 12.0
+shader_parameter/causticSpeed = 0.005
+shader_parameter/causticMovementAmount = 0.15
+shader_parameter/causticFaderMultiplier = 1.45
+shader_parameter/specularColor = Vector4(1, 1, 1, 1)
+shader_parameter/specularNoiseTexture = ExtResource("6_u0xbq")
+shader_parameter/specularMovementLeftNoiseTexture = ExtResource("6_u0xbq")
+shader_parameter/specularMovementRightNoiseTexture = ExtResource("6_u0xbq")
+shader_parameter/specularThreshold = 0.35
+shader_parameter/specularSpeed = 0.025
+shader_parameter/specularScale = 15.0
+shader_parameter/foamColor = Vector4(1, 1, 1, 1)
+shader_parameter/foamTexture = ExtResource("7_pln1h")
+shader_parameter/foamIntensity = 1.0
+shader_parameter/foamScale = 15.0
+shader_parameter/outlineColor = Vector4(0.675, 0.86, 1, 1)
+shader_parameter/generalTransparency = 0.13
 
 [node name="test_scene" type="Node2D" unique_id=144867646]
 script = ExtResource("1_j8ivh")
@@ -12,7 +50,22 @@ script = ExtResource("1_j8ivh")
 position = Vector2(64, 64)
 texture = ExtResource("2_nd71p")
 
+[node name="Shader" type="Sprite2D" parent="Background" unique_id=1546512646]
+material = SubResource("ShaderMaterial_srbyt")
+position = Vector2(0, 46)
+texture = ExtResource("9_hf2sn")
+
 [node name="FishController" parent="." unique_id=805653219 instance=ExtResource("1_g7g4h")]
 
 [node name="Fisherman" parent="." unique_id=852521369 instance=ExtResource("4_7ddre")]
 position = Vector2(92, 70)
+
+[node name="Dock" type="Sprite2D" parent="." unique_id=1020030234]
+position = Vector2(104, 95)
+texture = ExtResource("12_qq5q4")
+
+[node name="FishingMinigame" parent="." unique_id=1625891054 instance=ExtResource("14_pln1h")]
+position = Vector2(10, 34)
+
+[connection signal="game_lost" from="FishingMinigame" to="." method="_on_fishing_minigame_game_lost"]
+[connection signal="game_won" from="FishingMinigame" to="." method="_on_fishing_minigame_game_won"]
