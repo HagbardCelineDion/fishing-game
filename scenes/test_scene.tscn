@@ -80,7 +80,7 @@ offset_right = -3.0
 offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("14_u0xbq")
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 8
 text = "Score: 10"
 horizontal_alignment = 2
 

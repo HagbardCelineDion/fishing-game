@@ -32,6 +32,7 @@ func initialize_game(value: int) -> void:
 	if randi_range(0, 1):
 		fish_velocity *= -1
 	progress_bar.value = 0
+	fish_seconds = value + 1
 	fish_start = false
 	game_started = false
 	playing = true
@@ -53,7 +54,7 @@ func _process(delta: float) -> void:
 		progress_bar.value += (100/fish_seconds) * delta
 		if not fish_start:
 			fish_start = true
-			get_tree().create_timer(1.5,0).timeout.connect(start_game)
+			get_tree().create_timer(2,0).timeout.connect(start_game)
 	else:
 		progress_bar.value -= (100/(fish_seconds * 1.3)) * delta
 	
@@ -102,4 +103,5 @@ func player_move(delta) -> void:
 	player.position.y += player_velocity * delta
 
 func start_game() -> void:
+	#used so that the game doesn't end instantly if you touch the fish for a brief period right at the start
 	game_started = true
