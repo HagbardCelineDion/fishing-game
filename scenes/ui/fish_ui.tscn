@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8v16oe1kp3gb"]
+
+[ext_resource type="Script" uid="uid://5rxfov8guk7s" path="res://scenes/ui/fish_ui.gd" id="1_d75fb"]
+
+[node name="fish_ui" type="Control" unique_id=1880972234]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d75fb")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1337215978]
+rotation = -1.5707964
+flip_h = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dgap0k3hmf3jb"]
+
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_2xqos"]
+[ext_resource type="Texture2D" uid="uid://4a81jk2al4vk" path="res://art/fish/Fish-bluegill.png" id="1_5eppr"]
+
+[resource]
+script = ExtResource("1_2xqos")
+min_length = 4.0
+max_length = 14.0
+max_value = 3
+name = "Bluegill"
+image = ExtResource("1_5eppr")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

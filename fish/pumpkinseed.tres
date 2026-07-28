@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://c7uxj7k1le0ju"]
+
+[ext_resource type="Texture2D" uid="uid://cot4vv1sa25mq" path="res://art/fish/Fish-pumpkinseed.png" id="1_6bsn0"]
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_qat0q"]
+
+[resource]
+script = ExtResource("1_qat0q")
+min_length = 3.0
+max_length = 13.0
+max_value = 3
+name = "Pumpkinseed"
+image = ExtResource("1_6bsn0")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

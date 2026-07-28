@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://bb72fh3r1kait"]
+
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_mv0ku"]
+[ext_resource type="Texture2D" uid="uid://dsrecrqt5dvba" path="res://art/fish/Fish-channel-cat.png" id="1_nnl60"]
+
+[resource]
+script = ExtResource("1_mv0ku")
+min_length = 12.0
+max_length = 38.0
+max_value = 10
+name = "Channel Catfish"
+image = ExtResource("1_nnl60")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

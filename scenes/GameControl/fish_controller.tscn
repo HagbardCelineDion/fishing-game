@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://o8hg6txj4i6f"]
+
+[ext_resource type="PackedScene" uid="uid://c8v16oe1kp3gb" path="res://scenes/ui/fish_ui.tscn" id="1_ado4j"]
+[ext_resource type="Script" uid="uid://bc1ewyhncagey" path="res://scenes/GameControl/fish_controller.gd" id="1_y01tg"]
+
+[node name="FishController" type="Node" unique_id=805653219]
+script = ExtResource("1_y01tg")
+
+[node name="fish_ui" parent="." unique_id=1880972234 instance=ExtResource("1_ado4j")]
+offset_left = 70.0
+offset_top = 92.0
+offset_right = 110.0
+offset_bottom = 132.0

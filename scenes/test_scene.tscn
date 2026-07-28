@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://28v4g6lc4ijf"]
+
+[ext_resource type="PackedScene" uid="uid://o8hg6txj4i6f" path="res://scenes/GameControl/fish_controller.tscn" id="1_g7g4h"]
+[ext_resource type="Script" uid="uid://c152cryrx3ufe" path="res://scenes/test_scene.gd" id="1_j8ivh"]
+[ext_resource type="Texture2D" uid="uid://cv26wahebbdmo" path="res://art/Background.png" id="2_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bifnq4nlcrgln" path="res://scenes/Fisherman/fisherman.tscn" id="4_7ddre"]
+
+[node name="test_scene" type="Node2D" unique_id=144867646]
+script = ExtResource("1_j8ivh")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=443773500]
+position = Vector2(64, 64)
+texture = ExtResource("2_nd71p")
+
+[node name="FishController" parent="." unique_id=805653219 instance=ExtResource("1_g7g4h")]
+
+[node name="Fisherman" parent="." unique_id=852521369 instance=ExtResource("4_7ddre")]
+position = Vector2(92, 70)

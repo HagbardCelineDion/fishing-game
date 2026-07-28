@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://b7gcp2g83bgk0"]
+
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_pgt0x"]
+[ext_resource type="Texture2D" uid="uid://ct3au88fdjc11" path="res://art/fish/Fish-perch.png" id="1_s530x"]
+
+[resource]
+script = ExtResource("1_pgt0x")
+min_length = 5.0
+max_length = 11.0
+max_value = 4
+name = "Perch"
+image = ExtResource("1_s530x")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

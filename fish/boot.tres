@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Boot" format=3 uid="uid://deoii5ljiarox"]
+
+[ext_resource type="Texture2D" uid="uid://b2huclof2p0j5" path="res://art/fish/Fish-boot.png" id="1_46lfc"]
+[ext_resource type="Script" uid="uid://cyo17r3erp03r" path="res://fish/boot.gd" id="1_snh8y"]
+
+[resource]
+script = ExtResource("1_snh8y")
+min_length = 4.0
+max_length = 12.0
+name = "It's a boot :/"
+image = ExtResource("1_46lfc")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"
