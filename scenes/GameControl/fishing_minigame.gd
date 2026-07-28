@@ -21,13 +21,10 @@ var player_velocity : float = 0
 #game logic vars
 var fish_start: bool = false
 var game_started: bool = false
-var playing = false
+var playing: bool = false
 
 func _ready() -> void:
-	fish.position.y = randi_range(-24,24)
-	player.position.y = randi_range(-10, 10)
-	if randi_range(0, 1):
-		fish_velocity *= -1
+	pass
 
 func initialize_game(value: int) -> void:
 	fish.position.y = randi_range(-24,24)
@@ -35,6 +32,8 @@ func initialize_game(value: int) -> void:
 	if randi_range(0, 1):
 		fish_velocity *= -1
 	progress_bar.value = 0
+	fish_start = false
+	game_started = false
 	playing = true
 
 func _process(delta: float) -> void:
@@ -54,7 +53,7 @@ func _process(delta: float) -> void:
 		progress_bar.value += (100/fish_seconds) * delta
 		if not fish_start:
 			fish_start = true
-			get_tree().create_timer(1.5, 1).timeout.connect(start_game)
+			get_tree().create_timer(1.5,0).timeout.connect(start_game)
 	else:
 		progress_bar.value -= (100/(fish_seconds * 1.3)) * delta
 	

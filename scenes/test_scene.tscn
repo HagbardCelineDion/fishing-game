@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://6iyeofn65ipy" path="res://shaders/Water shader.png" id="9_hf2sn"]
 [ext_resource type="Texture2D" uid="uid://d4l4cbm23eqir" path="res://art/Dock.png" id="12_qq5q4"]
 [ext_resource type="PackedScene" uid="uid://di0bytiue2f6i" path="res://scenes/GameControl/fishing_minigame.tscn" id="14_pln1h"]
+[ext_resource type="FontFile" uid="uid://dlwmccrr0twqh" path="res://art/pixel_rpg.ttf" id="14_u0xbq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srbyt"]
 shader = ExtResource("5_qjeyg")
@@ -66,6 +67,26 @@ texture = ExtResource("12_qq5q4")
 
 [node name="FishingMinigame" parent="." unique_id=1625891054 instance=ExtResource("14_pln1h")]
 position = Vector2(10, 34)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=762331109]
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1533520758]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("14_u0xbq")
+theme_override_font_sizes/font_size = 7
+text = "Score: 10"
+horizontal_alignment = 2
+
+[node name="Fish Deets" type="Label" parent="CanvasLayer" unique_id=359314729]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="game_lost" from="FishingMinigame" to="." method="_on_fishing_minigame_game_lost"]
 [connection signal="game_won" from="FishingMinigame" to="." method="_on_fishing_minigame_game_won"]

@@ -4,11 +4,13 @@ extends Node2D
 @onready var fishing_minigame: Game = $FishingMinigame
 
 var fish_on = false
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fish_controller.visible = false
 	fishing_minigame.visible = false
+	$CanvasLayer/Score.text = "Score: " + str(score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,14 +28,16 @@ func _process(delta: float) -> void:
 func _on_fishing_minigame_game_won() -> void:
 	fish_controller.visible = true
 	fishing_minigame.visible = false
-	fish_on = false
 	print("caught fish!")
 	fish_controller.print()
+	score += fish_controller.get_value()
+	$CanvasLayer/Score.text = "Score: " + str(score)
 	await get_tree().create_timer(2).timeout
+	fish_on = false
 
 
 func _on_fishing_minigame_game_lost() -> void:
 	fishing_minigame.visible = false
-	fish_on = false
 	print("lost the fish!")
 	await get_tree().create_timer(2).timeout
+	fish_on = false
