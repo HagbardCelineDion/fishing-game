@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bwcde6gpewmcf"]
+
+[ext_resource type="Texture2D" uid="uid://0uo8abd5vl7q" path="res://art/juice/Bobber.png" id="1_3tr13"]
+
+[node name="Bobber" type="Node2D" unique_id=180431870]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=83565619]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_3tr13")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=832537811]

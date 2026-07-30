@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://c8jo3036abe1q"]
+
+[ext_resource type="Texture2D" uid="uid://dnu1prs6lhj5u" path="res://art/fish/Fish-smallmouth.png" id="1_d1mcf"]
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_whfbx"]
+
+[resource]
+script = ExtResource("1_whfbx")
+min_length = 8.0
+max_length = 30.0
+max_value = 5
+name = "Smallmouth Bass"
+image = ExtResource("1_d1mcf")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

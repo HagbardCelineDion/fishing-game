@@ -1,11 +1,20 @@
+class_name Fisherman
 extends Node2D
 
+signal cast_complete
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func cast_done() -> void:
+	cast_complete.emit()
 
+func cast_animate() -> void:
+	$AnimationPlayer.play("cast")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func stand_animate() -> void:
+	$AnimationPlayer.stop()
+	$Sprite2D.frame = 0
+
+func bite_animate() -> void:
+	$AnimationPlayer.play("bite")
+
+func reel_animate() -> void:
+	$AnimationPlayer.play("reel")

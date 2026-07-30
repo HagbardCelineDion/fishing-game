@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthtdd7c53fcg"
-path="res://.godot/imported/Game border.png-160fc73cbf5b847e16426c4d70c00a80.ctex"
+uid="uid://c3kix076c7t4j"
+path="res://.godot/imported/Splash.png-d42a1c5349a0fddc0b084dfa720a91d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Game border.png"
-dest_files=["res://.godot/imported/Game border.png-160fc73cbf5b847e16426c4d70c00a80.ctex"]
+source_file="res://art/juice/Splash.png"
+dest_files=["res://.godot/imported/Splash.png-d42a1c5349a0fddc0b084dfa720a91d8.ctex"]
 
 [params]
 

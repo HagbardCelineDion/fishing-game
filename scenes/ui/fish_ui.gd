@@ -29,8 +29,17 @@ func _set_fish(value : Fish) -> void:
 	fish.length = clamp(snapped(rand,0.1), fish.min_length, fish.max_length)
 	$sprite.texture = fish.image
 
-func print_stats() -> void:
-	print("____________________")
-	print(fish.name)
-	print("length: " + str(fish.get_length()))
-	print("value: " + str(fish.get_value()))
+func print_stats() -> String:
+	var string: String = ""
+	string += fish.name + "\n"
+	string += "length: " + str(fish.get_length()) + "\n"
+	string += "value: " + str(fish.get_value()) + "\n"
+	return string
+
+func rotate_needed() -> bool:
+	return fish.rotate_needed()
+
+func do_rotate() -> void:
+	if not rotate_needed():
+		var tween = create_tween()
+		tween.tween_property(sprite, "rotation_degrees", 0, 1)

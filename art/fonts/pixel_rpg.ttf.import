@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dlwmccrr0twqh"
-path="res://.godot/imported/pixel_rpg.ttf-59951fa72659cb0c2359654d5398f7c3.fontdata"
+path="res://.godot/imported/pixel_rpg.ttf-676706c91285f756e3973adb9d353921.fontdata"
 
 [deps]
 
-source_file="res://art/pixel_rpg.ttf"
-dest_files=["res://.godot/imported/pixel_rpg.ttf-59951fa72659cb0c2359654d5398f7c3.fontdata"]
+source_file="res://art/fonts/pixel_rpg.ttf"
+dest_files=["res://.godot/imported/pixel_rpg.ttf-676706c91285f756e3973adb9d353921.fontdata"]
 
 [params]
 
