@@ -12,16 +12,10 @@ var fish = [
 	preload("res://fish/channelcat.tres"),
 	preload("res://fish/perch.tres"),
 	preload("res://fish/pumpkinseed.tres"),
+	preload("res://fish/smallmouth.tres"),
+	preload("res://fish/tire.tres")
 ]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func choose_fish() -> void:
 	fish_ui.position = Vector2(70,92)
@@ -44,7 +38,6 @@ func reel_in_animate() -> void:
 
 func display() -> void:
 	var pos_tween = create_tween()
-	var rot_tween = create_tween()
 	var scale_tween = create_tween()
 	pos_tween.tween_property($fish_ui, "position", Vector2(64,64),1)
 	scale_tween.tween_property($fish_ui,"scale",Vector2(2,2),1)

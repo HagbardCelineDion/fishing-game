@@ -1,3 +1,4 @@
+class_name Splash
 extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -6,13 +7,11 @@ extends Node2D
 func _ready() -> void:
 	sprite_2d.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func visible() -> void:
 	sprite_2d.visible = true
 
 func invisible() -> void:
 	sprite_2d.visible = false
+
+func splash_animate() -> void:
+	$AnimationPlayer.play("splash")

@@ -61,6 +61,12 @@ texture = ExtResource("9_5k0ak")
 [node name="Fisherman" parent="." unique_id=852521369 instance=ExtResource("11_3ies3")]
 position = Vector2(92, 70)
 
+[node name="Splash" parent="." unique_id=485964473 instance=ExtResource("14_556r4")]
+position = Vector2(37, 111)
+
+[node name="Bobber" parent="." unique_id=180431870 instance=ExtResource("16_arp2o")]
+position = Vector2(38, 116)
+
 [node name="FishController" parent="." unique_id=805653219 instance=ExtResource("10_wu01b")]
 
 [node name="Dock" type="Sprite2D" parent="." unique_id=1020030234]
@@ -69,12 +75,6 @@ texture = ExtResource("12_xy2fk")
 
 [node name="FishingMinigame" parent="." unique_id=1625891054 instance=ExtResource("13_cmcjb")]
 position = Vector2(10, 34)
-
-[node name="Splash" parent="." unique_id=485964473 instance=ExtResource("14_556r4")]
-position = Vector2(29, 106)
-
-[node name="Bobber" parent="." unique_id=180431870 instance=ExtResource("16_arp2o")]
-position = Vector2(69, 71)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=762331109]
 

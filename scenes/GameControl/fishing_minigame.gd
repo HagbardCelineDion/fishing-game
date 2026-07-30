@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 			fish_start = true
 			get_tree().create_timer(2,0).timeout.connect(start_game)
 	else:
-		progress_bar.value -= (100/(fish_seconds * 1.3)) * delta
+		progress_bar.value -= (100/(4)) * delta
 	
 	#handle end of game
 	if progress_bar.value == 100:

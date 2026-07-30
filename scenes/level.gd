@@ -18,6 +18,7 @@ func _ready() -> void:
 	game_state =  State.STAND
 	fish_controller.visible = false
 	fishing_minigame.visible = false
+	$Bobber.visible = false
 	score.text = "Score: " + str(overall_score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +63,9 @@ func stand() -> void:
 		game_state = State.CASTING
 		fisherman.cast_animate()
 		await Signal(fisherman, "cast_complete")
+		$Splash.splash_animate()
+		$Bobber.visible = true
+		$Bobber.float_animate()
 		game_state = State.WAIT
 
 func wait() -> void:
@@ -74,10 +78,12 @@ func wait() -> void:
 
 func bite() -> void:
 	fisherman.bite_animate()
+	$Bobber.bite_animate()
 	if Input.is_action_just_pressed("space"):
 		game_state = State.GAME
 
 func game() -> void:
+	$Bobber.visible = false
 	if not fish_on:
 		fish_on = true
 		#start minigame transfer control to fishing minigame
@@ -115,9 +121,18 @@ func display() -> void:
 				waiting = false
 
 func lost() -> void:
-	fisherman.stand_animate()
-	fishing_minigame.visible = false
-	print("lost the fish!")
-	fish_on = false
-	
-	game_state = State.STAND
+	if not waiting:
+		waiting = true
+		fisherman.stand_animate()
+		fishing_minigame.visible = false
+		fish_on = false
+		game_state = State.DISPLAYING
+		wait_timer.start()
+		$"CanvasLayer/Fish Deets".text = "Fish got away!"
+		$"CanvasLayer/Fish Deets".visible = true
+		game_state = State.LOST
+	else:
+		if wait_timer.is_stopped():
+			if Input.is_action_just_pressed("space"):
+				game_state = State.STAND
+				waiting = false

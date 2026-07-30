@@ -1,8 +1,102 @@
 [gd_scene format=3 uid="uid://bwcde6gpewmcf"]
 
 [ext_resource type="Texture2D" uid="uid://0uo8abd5vl7q" path="res://art/juice/Bobber.png" id="1_3tr13"]
+[ext_resource type="Script" uid="uid://djhhh6ik6st61" path="res://scenes/Fisherman/bobber.gd" id="1_xuf8c"]
+
+[sub_resource type="Animation" id="Animation_mprls"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xuf8c"]
+resource_name = "bite"
+length = 0.3333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lb3ge"]
+resource_name = "float"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4333333, 1.6666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, 0), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuauw"]
+_data = {
+&"RESET": SubResource("Animation_mprls"),
+&"bite": SubResource("Animation_xuf8c"),
+&"float": SubResource("Animation_lb3ge")
+}
 
 [node name="Bobber" type="Node2D" unique_id=180431870]
+script = ExtResource("1_xuf8c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=83565619]
 scale = Vector2(0.25, 0.25)
@@ -10,3 +104,5 @@ texture = ExtResource("1_3tr13")
 hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=832537811]
+libraries/ = SubResource("AnimationLibrary_yuauw")
+autoplay = &"float"
