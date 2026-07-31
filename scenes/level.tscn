@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ccnyyy80f540r" path="res://scenes/Fisherman/splash.tscn" id="14_556r4"]
 [ext_resource type="FontFile" uid="uid://dlwmccrr0twqh" path="res://art/fonts/pixel_rpg.ttf" id="15_7agi7"]
 [ext_resource type="PackedScene" uid="uid://bwcde6gpewmcf" path="res://scenes/Fisherman/bobber.tscn" id="16_arp2o"]
+[ext_resource type="StyleBox" uid="uid://dhjmu2t0rr4ew" path="res://themes/style_box_flat.tres" id="16_ux5qa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srbyt"]
 shader = ExtResource("3_ux5qa")
@@ -62,10 +63,10 @@ texture = ExtResource("9_5k0ak")
 position = Vector2(92, 70)
 
 [node name="Splash" parent="." unique_id=485964473 instance=ExtResource("14_556r4")]
-position = Vector2(37, 111)
+position = Vector2(19, 110)
 
 [node name="Bobber" parent="." unique_id=180431870 instance=ExtResource("16_arp2o")]
-position = Vector2(38, 116)
+position = Vector2(20, 116)
 
 [node name="FishController" parent="." unique_id=805653219 instance=ExtResource("10_wu01b")]
 
@@ -78,38 +79,66 @@ position = Vector2(10, 34)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=762331109]
 
-[node name="Score" type="Label" parent="CanvasLayer" unique_id=1533520758]
-anchors_preset = -1
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer" unique_id=1036985399]
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -91.0
-offset_top = 3.0
-offset_right = -3.0
-offset_bottom = 23.0
+offset_left = -47.0
+offset_bottom = 11.0
 grow_horizontal = 0
+theme_override_styles/panel = ExtResource("16_ux5qa")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer2" unique_id=906138746]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer" unique_id=1533520758]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("15_7agi7")
 theme_override_font_sizes/font_size = 8
 text = "Score: 10"
 horizontal_alignment = 2
 
-[node name="Fish Deets" type="Label" parent="CanvasLayer" unique_id=359314729]
-anchors_preset = -1
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1025434295]
+custom_minimum_size = Vector2(40, 5)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = 39.0
+offset_top = 18.0
 offset_right = 20.0
-offset_bottom = 60.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("16_ux5qa")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=345546958]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=21222993]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Fish Deets" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/CenterContainer" unique_id=359314729]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9999998, 0.8662196, 0.71412045, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8509804)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("15_7agi7")
 theme_override_font_sizes/font_size = 8
-text = "Fish
-DOne"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 3
 
 [node name="WaitTimer" type="Timer" parent="." unique_id=1836037440]
 wait_time = 3.0

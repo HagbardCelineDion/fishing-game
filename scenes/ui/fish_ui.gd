@@ -32,8 +32,8 @@ func _set_fish(value : Fish) -> void:
 func print_stats() -> String:
 	var string: String = ""
 	string += fish.name + "\n"
-	string += "length: " + str(fish.get_length()) + "\n"
-	string += "value: " + str(fish.get_value()) + "\n"
+	string += "Length: " + str(fish.get_length()) + "\n"
+	string += "Value: " + str(fish.get_value())
 	return string
 
 func rotate_needed() -> bool:
@@ -43,3 +43,9 @@ func do_rotate() -> void:
 	if not rotate_needed():
 		var tween = create_tween()
 		tween.tween_property(sprite, "rotation_degrees", 0, 1)
+
+func return_name() -> String:
+	return fish.name
+
+func get_length() -> int:
+	return fish.length

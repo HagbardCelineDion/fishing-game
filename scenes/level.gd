@@ -3,8 +3,9 @@ extends Node2D
 @onready var fish_controller: FishController = $FishController
 @onready var fishing_minigame: Game = $FishingMinigame
 @onready var fisherman: Fisherman = $Fisherman
-@onready var score: Label = $CanvasLayer/Score
+@onready var score: Label = $CanvasLayer/PanelContainer2/MarginContainer/Score
 @onready var wait_timer: Timer = $WaitTimer
+@onready var best_fish: Dictionary[String, int] = {}
 
 enum State {STAND, CASTING, WAIT, BITE, GAME, WON, DISPLAY, DISPLAYING, LOST}
 
@@ -56,7 +57,7 @@ func _on_fishing_minigame_game_lost() -> void:
 
 
 func stand() -> void:
-	$"CanvasLayer/Fish Deets".visible = false
+	$CanvasLayer/PanelContainer.visible = false
 	fish_controller.visible = false
 	fisherman.stand_animate()
 	if Input.is_action_just_pressed("space"):
@@ -109,10 +110,15 @@ func display() -> void:
 		waiting = true
 		game_state = State.DISPLAYING
 		wait_timer.start()
+		if best_fish.has(fish_controller.return_name()):
+			if fish_controller.get_length() > best_fish.get(fish_controller.return_name()):
+				best_fish.set(fish_controller.return_name(),fish_controller.get_length())
+		else:
+			best_fish.set(fish_controller.return_name(),fish_controller.get_length())
 		await Signal($FishController,"reeled_in")
 		fish_controller.display()
-		$"CanvasLayer/Fish Deets".text = fish_controller.print()
-		$"CanvasLayer/Fish Deets".visible = true
+		$"CanvasLayer/PanelContainer/MarginContainer/CenterContainer/Fish Deets".text = fish_controller.print() + "\nBest: " + str(best_fish.get(fish_controller.return_name()))
+		$CanvasLayer/PanelContainer.visible = true
 		game_state = State.DISPLAY
 	else:
 		if wait_timer.is_stopped():
@@ -128,8 +134,8 @@ func lost() -> void:
 		fish_on = false
 		game_state = State.DISPLAYING
 		wait_timer.start()
-		$"CanvasLayer/Fish Deets".text = "Fish got away!"
-		$"CanvasLayer/Fish Deets".visible = true
+		$"CanvasLayer/PanelContainer/MarginContainer/CenterContainer/Fish Deets".text = "Fish got away!"
+		$CanvasLayer/PanelContainer.visible = true
 		game_state = State.LOST
 	else:
 		if wait_timer.is_stopped():

@@ -39,6 +39,12 @@ func reel_in_animate() -> void:
 func display() -> void:
 	var pos_tween = create_tween()
 	var scale_tween = create_tween()
-	pos_tween.tween_property($fish_ui, "position", Vector2(64,64),1)
+	pos_tween.tween_property($fish_ui, "position", Vector2(64,42),1)
 	scale_tween.tween_property($fish_ui,"scale",Vector2(2,2),1)
 	fish_ui.do_rotate()
+
+func return_name() -> String:
+	return fish_ui.return_name()
+
+func get_length() -> int:
+	return fish_ui.get_length()
