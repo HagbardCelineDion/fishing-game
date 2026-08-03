@@ -13,15 +13,57 @@ var fish = [
 	preload("res://fish/perch.tres"),
 	preload("res://fish/pumpkinseed.tres"),
 	preload("res://fish/smallmouth.tres"),
-	preload("res://fish/tire.tres")
+	preload("res://fish/tire.tres"),
+	preload("res://fish/lakesturgeon.tres"),
 ]
+
+#fish choosing stuff
+var common_fish = []
+var uncommon_fish = []
+var rare_fish = []
+var legendary_fish = []
+const COMMON_CHANCE: float = .6
+const UNCOMMON_CHANCE: float = .3
+const RARE_CHANCE: float = .1
+const LEGENDARY_CHANCE: float = .05
+
+func _ready() -> void:
+#organize fish by rarity
+	for i in fish:
+		if i.rarity == Fish.rarity_list.COMMON:
+			common_fish.append(i)
+		elif i.rarity == Fish.rarity_list.UNCOMMON:
+			uncommon_fish.append(i)
+		elif i.rarity == Fish.rarity_list.RARE:
+			rare_fish.append(i)
+		else:
+			legendary_fish.append(i)
 
 
 func choose_fish() -> void:
+	var fish_selection
+	var the_fish: Fish
 	fish_ui.position = Vector2(70,92)
 	fish_ui.scale = Vector2(1,1)
-	var fish_selection = randi_range(0,fish.size()-1)
-	var the_fish = fish[fish_selection]
+	var rarity = randf()
+	print(rarity)
+	if (rarity <= COMMON_CHANCE):
+		fish_selection = randi_range(0,common_fish.size()-1)
+		the_fish = common_fish[fish_selection]
+		print(the_fish.name)
+	elif (rarity <= COMMON_CHANCE + UNCOMMON_CHANCE):
+		fish_selection = randi_range(0,uncommon_fish.size()-1)
+		the_fish = uncommon_fish[fish_selection]
+		print(the_fish.name)
+	elif (rarity <= COMMON_CHANCE + UNCOMMON_CHANCE + RARE_CHANCE):
+		fish_selection = randi_range(0,rare_fish.size()-1)
+		the_fish = rare_fish[fish_selection]
+		print(the_fish.name)
+	
+	if the_fish.has_legendary:
+		var is_leg = randf()
+		if (is_leg <= LEGENDARY_CHANCE):
+			the_fish = the_fish.legendary_fish
 	fish_ui.fish = the_fish
 
 func get_value() -> int:

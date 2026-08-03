@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://doh1xdw56hrx7"]
+
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_betii"]
+[ext_resource type="Texture2D" uid="uid://bpx74n205rxib" path="res://art/fish/Fish-northernpike.png" id="1_m27ie"]
+
+[resource]
+script = ExtResource("1_betii")
+min_length = 18.0
+max_length = 30.0
+max_value = 10
+rarity = 1
+name = "Northern Pike"
+image = ExtResource("1_m27ie")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

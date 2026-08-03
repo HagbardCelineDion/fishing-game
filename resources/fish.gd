@@ -5,11 +5,17 @@ extends Resource
 @export var min_length : float
 @export var max_length : float
 @export var max_value : int
+@export var rarity : rarity_list
 
 @export_group("Fish Visuals")
 @export var name : String
 @export var image : Texture
 
+@export_group("Legendary Info")
+@export var has_legendary : bool
+@export var legendary_fish : Fish
+
+enum rarity_list {COMMON, UNCOMMON, RARE, LEGENDARY}
 var length
 
 func get_value() -> int:

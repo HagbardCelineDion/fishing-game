@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dbugc1p2ei2p2"]
+
+[ext_resource type="Script" uid="uid://c3bd3dr11ihst" path="res://resources/fish.gd" id="1_2xgxi"]
+[ext_resource type="Texture2D" uid="uid://bt17wvq5e6ryf" path="res://art/fish/Fish-lake-sturgeon.png" id="1_ytoln"]
+
+[resource]
+script = ExtResource("1_2xgxi")
+min_length = 36.0
+max_length = 72.0
+max_value = 15
+rarity = 2
+name = "Lake Sturgeon"
+image = ExtResource("1_ytoln")
+metadata/_custom_type_script = "uid://c3bd3dr11ihst"

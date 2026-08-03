@@ -7,6 +7,7 @@
 script = ExtResource("2_1xfi7")
 min_length = 12.0
 max_length = 24.0
-name = "Ugh it's a Tire"
+rarity = 2
+name = "Tire"
 image = ExtResource("1_i46hl")
 metadata/_custom_type_script = "uid://c3bd3dr11ihst"

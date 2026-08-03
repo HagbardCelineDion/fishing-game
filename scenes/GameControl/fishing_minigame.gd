@@ -32,7 +32,7 @@ func initialize_game(value: int) -> void:
 	if randi_range(0, 1):
 		fish_velocity *= -1
 	progress_bar.value = 0
-	fish_seconds = value + 1
+	fish_seconds = clamp(value + 1, 3, 10)
 	fish_start = false
 	game_started = false
 	playing = true

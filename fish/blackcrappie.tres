@@ -8,6 +8,7 @@ script = ExtResource("1_i22bg")
 min_length = 5.0
 max_length = 16.0
 max_value = 5
+rarity = 1
 name = "Black Crappie"
 image = ExtResource("1_4klsx")
 metadata/_custom_type_script = "uid://c3bd3dr11ihst"

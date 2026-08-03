@@ -8,6 +8,7 @@ script = ExtResource("1_mv0ku")
 min_length = 12.0
 max_length = 38.0
 max_value = 10
+rarity = 1
 name = "Channel Catfish"
 image = ExtResource("1_nnl60")
 metadata/_custom_type_script = "uid://c3bd3dr11ihst"

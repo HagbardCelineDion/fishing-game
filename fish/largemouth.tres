@@ -8,6 +8,7 @@ script = ExtResource("1_scheh")
 min_length = 12.0
 max_length = 38.0
 max_value = 7
+rarity = 1
 name = "Largemouth Bass"
 image = ExtResource("1_cpr3y")
 metadata/_custom_type_script = "uid://c3bd3dr11ihst"

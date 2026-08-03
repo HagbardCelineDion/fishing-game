@@ -6,6 +6,7 @@ extends Node2D
 @onready var score: Label = $CanvasLayer/PanelContainer2/MarginContainer/Score
 @onready var wait_timer: Timer = $WaitTimer
 @onready var best_fish: Dictionary[String, int] = {}
+@onready var fish_deets: Label = $"CanvasLayer/PanelContainer/MarginContainer/CenterContainer/Fish Deets"
 
 enum State {STAND, CASTING, WAIT, BITE, GAME, WON, DISPLAY, DISPLAYING, LOST}
 
@@ -117,7 +118,7 @@ func display() -> void:
 			best_fish.set(fish_controller.return_name(),fish_controller.get_length())
 		await Signal($FishController,"reeled_in")
 		fish_controller.display()
-		$"CanvasLayer/PanelContainer/MarginContainer/CenterContainer/Fish Deets".text = fish_controller.print() + "\nBest: " + str(best_fish.get(fish_controller.return_name()))
+		fish_deets.text = fish_controller.print() + "\nBest: " + str(best_fish.get(fish_controller.return_name()))
 		$CanvasLayer/PanelContainer.visible = true
 		game_state = State.DISPLAY
 	else:
@@ -134,7 +135,7 @@ func lost() -> void:
 		fish_on = false
 		game_state = State.DISPLAYING
 		wait_timer.start()
-		$"CanvasLayer/PanelContainer/MarginContainer/CenterContainer/Fish Deets".text = "Fish got away!"
+		fish_deets.text = "Fish got away!"
 		$CanvasLayer/PanelContainer.visible = true
 		game_state = State.LOST
 	else:
